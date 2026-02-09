@@ -599,9 +599,12 @@ class TerminalStream(pyte.Stream):
         OSC_TERMINATORS = set([ctrl.ST_C0, ctrl.ST_C1, ctrl.BEL, ctrl.CR])
 
         def create_dispatcher(mapping):
-            return defaultdict(lambda: debug, dict(
-                (event, getattr(listener, attr))
-                for event, attr in mapping.items()))
+            return defaultdict(
+                lambda: debug,
+                dict(
+                    (event, getattr(listener, attr)) for event, attr in mapping.items()
+                ),
+            )
 
         basic_dispatch = create_dispatcher(basic)
         sharp_dispatch = create_dispatcher(self.sharp)
