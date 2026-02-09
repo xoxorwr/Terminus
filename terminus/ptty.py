@@ -474,11 +474,11 @@ class TerminalScreen(pyte.Screen):
 
         self.cursor.attrs = self.cursor.attrs._replace(**replace)
 
-    # def report_device_attributes(self, mode=0, **kwargs):
-    #     pass
+    def report_device_attributes(self, mode=0, private=False):
+        pass
 
-    # def report_device_status(self, mode):
-    #     pass
+    def report_device_status(self, mode, private=False):
+        pass
 
     def write_process_input(self, data):
         self._process.write(data)
